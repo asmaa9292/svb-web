@@ -10,7 +10,7 @@ import {
   FileText,
   Loader2,
 } from 'lucide-react';
-import { InsCryptPanel } from './components/InsCryptPanel';
+import InsCryptPanel from './components/InsCryptPanel';
 
 function App() {
   const [isFileExplorerOpen, setIsFileExplorerOpen] = useState(true);
