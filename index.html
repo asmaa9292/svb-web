@@ -1,18 +1,21 @@
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sinavm</title>
-
-  <!-- CDNs -->
-  <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-
-  <!-- Local scripts - now with type="module" -->
-  <script type="module" src="/scripts/constants.js"></script>
-  <script type="module" src="/scripts/encryption.js"></script>
-  <script type="module" src="/scripts/hashes.js"></script>
-  <script type="module" src="/scripts/request.js"></script>
-  <script type="module" src="/scripts/svm.js"></script>
-</head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JFF</title>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+    <script src="/scripts/constants.js"></script>
+    <script src="/scripts/encryption.js"></script>
+    <script src="/scripts/hashes.js"></script>
+    <script src="/scripts/request.js"></script>
+    <script src="/scripts/jff.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
