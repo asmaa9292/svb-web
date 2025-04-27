@@ -49,98 +49,36 @@ const monokai = {
     borderRadius: '0.3em',
     whiteSpace: 'normal',
   },
-  comment: {
-    color: '#727072',
-  },
-  prolog: {
-    color: '#727072',
-  },
-  doctype: {
-    color: '#727072',
-  },
-  cdata: {
-    color: '#727072',
-  },
-  punctuation: {
-    color: '#939293',
-  },
-  property: {
-    color: '#ff6188',
-  },
-  tag: {
-    color: '#ff6188',
-  },
-  constant: {
-    color: '#ff6188',
-  },
-  symbol: {
-    color: '#ff6188',
-  },
-  deleted: {
-    color: '#ff6188',
-  },
-  boolean: {
-    color: '#ab9df2',
-  },
-  number: {
-    color: '#ab9df2',
-  },
-  selector: {
-    color: '#a9dc76',
-  },
-  'attr-name': {
-    color: '#a9dc76',
-  },
-  string: {
-    color: '#a9dc76',
-  },
-  char: {
-    color: '#a9dc76',
-  },
-  builtin: {
-    color: '#a9dc76',
-  },
-  inserted: {
-    color: '#a9dc76',
-  },
-  operator: {
-    color: '#78dce8',
-  },
-  entity: {
-    color: '#78dce8',
-    cursor: 'help',
-  },
-  url: {
-    color: '#78dce8',
-  },
-  variable: {
-    color: '#78dce8',
-  },
-  atrule: {
-    color: '#ffd866',
-  },
-  'attr-value': {
-    color: '#ffd866',
-  },
-  function: {
-    color: '#ffd866',
-  },
-  keyword: {
-    color: '#ff6188',
-  },
-  regex: {
-    color: '#ffd866',
-  },
-  important: {
-    color: '#ffd866',
-    fontWeight: 'bold',
-  },
-  bold: {
-    fontWeight: 'bold',
-  },
-  italic: {
-    fontStyle: 'italic',
-  },
+  comment: { color: '#727072' },
+  prolog: { color: '#727072' },
+  doctype: { color: '#727072' },
+  cdata: { color: '#727072' },
+  punctuation: { color: '#939293' },
+  property: { color: '#ff6188' },
+  tag: { color: '#ff6188' },
+  constant: { color: '#ff6188' },
+  symbol: { color: '#ff6188' },
+  deleted: { color: '#ff6188' },
+  boolean: { color: '#ab9df2' },
+  number: { color: '#ab9df2' },
+  selector: { color: '#a9dc76' },
+  'attr-name': { color: '#a9dc76' },
+  string: { color: '#a9dc76' },
+  char: { color: '#a9dc76' },
+  builtin: { color: '#a9dc76' },
+  inserted: { color: '#a9dc76' },
+  operator: { color: '#78dce8' },
+  entity: { color: '#78dce8', cursor: 'help' },
+  url: { color: '#78dce8' },
+  variable: { color: '#78dce8' },
+  atrule: { color: '#ffd866' },
+  'attr-value': { color: '#ffd866' },
+  function: { color: '#ffd866' },
+  keyword: { color: '#ff6188' },
+  regex: { color: '#ffd866' },
+  important: { color: '#ffd866', fontWeight: 'bold' },
+  bold: { fontWeight: 'bold' },
+  italic: { fontStyle: 'italic' },
 };
 
 declare global {
@@ -150,7 +88,7 @@ declare global {
   }
 }
 
-export function InsCryptPanel() {
+export default function InsCryptPanel() {
   const [url, setUrl] = useState('https://holy-heart-0271.valhallaa.workers.dev');
   const [code, setCode] = useState('');
   const [result, setResult] = useState<string>('');
@@ -164,8 +102,8 @@ export function InsCryptPanel() {
       const token = window.generateToken();
       const response = await window.requestConfigs(url, token, code);
       const configs = response.configs.map(c => c.url).join("\n");
-      setResult(configs); // JSON.stringify(response, null, 2));
-    } catch (error) {
+      setResult(configs);
+    } catch (error: any) {
       setError(error.message);
     } finally {
       setLoading(false);
@@ -249,9 +187,7 @@ export function InsCryptPanel() {
               <div className="flex items-center gap-2">
                 <span className="text-[#939293] text-xs">JSON</span>
                 <button
-                  onClick={() => {
-                    navigator.clipboard.writeText(result);
-                  }}
+                  onClick={() => navigator.clipboard.writeText(result)}
                   className="flex items-center justify-center p-1 hover:bg-[#3d3a3e] rounded transition-colors"
                   title="Copy to clipboard"
                 >
@@ -280,7 +216,6 @@ export function InsCryptPanel() {
               customStyle={{
                 margin: 0,
                 borderRadius: 0,
-                // maxHeight: '1000px',
               }}
             >
               {result}
